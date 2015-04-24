@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Mtn-9d-Pl0">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--公交线路优化查询系统-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cI-Hl-cK6">
+                                <rect key="frame" x="115" y="450" width="90" height="30"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="查询路线">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kcP-4O-udc" kind="push" id="4E4-Df-K56"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGG-74-6he">
+                                <rect key="frame" x="115" y="150" width="90" height="30"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="查询车次">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="EXv-vZ-P5n" kind="push" id="ldZ-Vh-GCh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmf-yy-HAz">
+                                <rect key="frame" x="115" y="300" width="90" height="30"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="添加车次">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ZBC-vD-JkP" kind="modal" id="LZX-0X-ZtX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="xGG-74-6he" secondAttribute="centerX" id="OAv-Zo-h35"/>
+                            <constraint firstAttribute="centerX" secondItem="6cI-Hl-cK6" secondAttribute="centerX" id="uQz-Bx-k5Y"/>
+                            <constraint firstAttribute="centerX" secondItem="cmf-yy-HAz" secondAttribute="centerX" id="vr3-M9-PLk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="公交线路优化查询系统" id="LbW-84-F7H"/>
+                    <connections>
+                        <outlet property="addButton" destination="cmf-yy-HAz" id="U1B-bd-LkM"/>
+                        <outlet property="listButton" destination="xGG-74-6he" id="ueT-wY-SmD"/>
+                        <outlet property="searchButton" destination="6cI-Hl-cK6" id="jhO-Ze-4FA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="220"/>
+        </scene>
+        <!--已有车次-->
+        <scene sceneID="1oj-SO-7kt">
+            <objects>
+                <viewController id="EXv-vZ-P5n" customClass="ListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PN6-Cb-5h2"/>
+                        <viewControllerLayoutGuide type="bottom" id="wiw-Lt-VIK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l4V-MI-gwa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UXr-xh-2dC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" rowHeight="70" id="soG-BY-KAR">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="soG-BY-KAR" id="V78-kl-MZB">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="已有车次" id="x2T-g1-cWC"/>
+                    <connections>
+                        <outlet property="listTableView" destination="UXr-xh-2dC" id="hMH-gy-NkX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qwF-9s-boQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="-523"/>
+        </scene>
+        <!--策略：最短时间-->
+        <scene sceneID="hUa-vi-nEV">
+            <objects>
+                <viewController id="FWy-G6-MBc" customClass="TimeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7C7-vD-RSQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="IpS-mk-psi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SIS-dI-9Wf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snt-wt-fqw">
+                                <rect key="frame" x="0.0" y="-1" width="320" height="569"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backgroundButtonClicked:" destination="FWy-G6-MBc" eventType="touchUpInside" id="zPa-Qa-DI6"/>
+                                    <action selector="backgroundClicked:" destination="jg5-u4-BSw" eventType="touchUpInside" id="uYz-hO-S3W"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="出发站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyz-o9-6Ud">
+                                <rect key="frame" x="63" y="148" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cop-Dm-BvE">
+                                <rect key="frame" x="161" y="144" width="97" height="30"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="startTextFieldDoneEditing:" destination="jg5-u4-BSw" eventType="editingDidEndOnExit" id="WLh-B0-Jle"/>
+                                    <action selector="startTextFieldDoneEditing:" destination="FWy-G6-MBc" eventType="editingDidEndOnExit" id="mQu-e4-4OV"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="终点站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfo-5H-XBt">
+                                <rect key="frame" x="63" y="273" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VmI-Sh-mVz">
+                                <rect key="frame" x="161" y="270" width="97" height="30"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="endTextFieldDoneEditing:" destination="FWy-G6-MBc" eventType="editingDidEndOnExit" id="3OX-1m-Psc"/>
+                                    <action selector="endTextFieldDoneEditing:" destination="jg5-u4-BSw" eventType="editingDidEndOnExit" id="Ytd-Pt-yRt"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4j-Yr-yLl">
+                                <rect key="frame" x="63" y="395" width="195" height="30"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="查   询">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonClicked:" destination="FWy-G6-MBc" eventType="touchUpInside" id="Len-cS-Eh1"/>
+                                    <action selector="searchButtonClicked:" destination="jg5-u4-BSw" eventType="touchUpInside" id="eJT-5X-OHT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="r4j-Yr-yLl" secondAttribute="centerX" constant="-0.5" id="6uk-13-7Mn"/>
+                            <constraint firstItem="Snt-wt-fqw" firstAttribute="width" secondItem="SIS-dI-9Wf" secondAttribute="width" id="8c8-pr-InA"/>
+                            <constraint firstItem="Hyz-o9-6Ud" firstAttribute="leading" secondItem="SIS-dI-9Wf" secondAttribute="leadingMargin" constant="47" id="9Va-2Q-Qw2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VmI-Sh-mVz" secondAttribute="trailing" constant="46" id="ILG-SM-h4I"/>
+                            <constraint firstAttribute="centerY" secondItem="Snt-wt-fqw" secondAttribute="centerY" constant="0.5" id="IqK-SY-bQX"/>
+                            <constraint firstItem="Nfo-5H-XBt" firstAttribute="leading" secondItem="SIS-dI-9Wf" secondAttribute="leadingMargin" constant="47" id="THn-GC-g2L"/>
+                            <constraint firstItem="Snt-wt-fqw" firstAttribute="height" secondItem="SIS-dI-9Wf" secondAttribute="height" id="bXX-mR-ESG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cop-Dm-BvE" secondAttribute="trailing" constant="46" id="eU3-XO-3xs"/>
+                            <constraint firstAttribute="centerX" secondItem="Snt-wt-fqw" secondAttribute="centerX" id="pVq-3B-Z3z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="策略：最短时间" id="Aym-b5-ip0"/>
+                    <connections>
+                        <outlet property="endTextField" destination="VmI-Sh-mVz" id="wlX-CZ-wqX"/>
+                        <outlet property="searchButton" destination="r4j-Yr-yLl" id="uK9-Xs-ooJ"/>
+                        <outlet property="startTextField" destination="cop-Dm-BvE" id="0nS-Mi-tfb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJ2-gU-18I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="217" y="1346"/>
+        </scene>
+        <!--策略：考虑换乘等待-->
+        <scene sceneID="rjI-Ss-7uf">
+            <objects>
+                <viewController id="LOW-4P-EDF" customClass="RealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o6j-Q0-Bfh"/>
+                        <viewControllerLayoutGuide type="bottom" id="MaB-v4-HHx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hDh-2B-tLl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSE-KA-i2y">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="569"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backgroundButtonClicked:" destination="LOW-4P-EDF" eventType="touchUpInside" id="455-vU-1Gd"/>
+                                    <action selector="backgroundButtonClicked:" destination="FWy-G6-MBc" eventType="touchUpInside" id="rTD-wb-4Gs"/>
+                                    <action selector="backgroundClicked:" destination="jg5-u4-BSw" eventType="touchUpInside" id="Y3t-7Z-2C6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="出发站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kco-Zp-JVZ">
+                                <rect key="frame" x="63" y="148" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="50a-eM-JJg">
+                                <rect key="frame" x="161" y="144" width="97" height="30"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="startTextFieldDoneEditing:" destination="FWy-G6-MBc" eventType="editingDidEndOnExit" id="3Qn-Q4-I0Z"/>
+                                    <action selector="startTextFieldDoneEditing:" destination="jg5-u4-BSw" eventType="editingDidEndOnExit" id="3U0-uh-XuA"/>
+                                    <action selector="startTextFieldDoneEditing:" destination="LOW-4P-EDF" eventType="editingDidEndOnExit" id="krm-Sq-qJ1"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="终点站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXW-zc-DxB">
+                                <rect key="frame" x="63" y="273" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-0t-Tyn">
+                                <rect key="frame" x="161" y="270" width="97" height="30"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="endTextFieldDoneEditing:" destination="jg5-u4-BSw" eventType="editingDidEndOnExit" id="Bzy-Hj-xd5"/>
+                                    <action selector="endTextFieldDoneEditing:" destination="FWy-G6-MBc" eventType="editingDidEndOnExit" id="MR2-VU-SS9"/>
+                                    <action selector="endTextFieldDoneEditing:" destination="LOW-4P-EDF" eventType="editingDidEndOnExit" id="VLW-Ke-HAR"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyX-7X-pSw">
+                                <rect key="frame" x="63" y="395" width="195" height="30"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="查   询">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonClicked:" destination="LOW-4P-EDF" eventType="touchUpInside" id="E7R-kF-IHg"/>
+                                    <action selector="searchButtonClicked:" destination="jg5-u4-BSw" eventType="touchUpInside" id="en3-wg-4YT"/>
+                                    <action selector="searchButtonClicked:" destination="FWy-G6-MBc" eventType="touchUpInside" id="jCn-ue-EgJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iXW-zc-DxB" firstAttribute="leading" secondItem="hDh-2B-tLl" secondAttribute="leadingMargin" constant="47" id="6UO-e0-OGT"/>
+                            <constraint firstItem="JSE-KA-i2y" firstAttribute="width" secondItem="hDh-2B-tLl" secondAttribute="width" id="7hJ-YK-i6R"/>
+                            <constraint firstAttribute="centerX" secondItem="tyX-7X-pSw" secondAttribute="centerX" constant="-0.5" id="JDJ-bO-gQ3"/>
+                            <constraint firstItem="JSE-KA-i2y" firstAttribute="height" secondItem="hDh-2B-tLl" secondAttribute="height" id="Q2x-N5-DzF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RIp-0t-Tyn" secondAttribute="trailing" constant="46" id="RSx-t9-31y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="50a-eM-JJg" secondAttribute="trailing" constant="46" id="dJZ-s2-6Pp"/>
+                            <constraint firstItem="kco-Zp-JVZ" firstAttribute="leading" secondItem="hDh-2B-tLl" secondAttribute="leadingMargin" constant="47" id="s02-uX-y2g"/>
+                            <constraint firstAttribute="centerY" secondItem="JSE-KA-i2y" secondAttribute="centerY" constant="-0.5" id="tMP-Ek-Bg9"/>
+                            <constraint firstAttribute="centerX" secondItem="JSE-KA-i2y" secondAttribute="centerX" id="uSR-Xr-Esd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="策略：考虑换乘等待" id="0sH-YV-vZq"/>
+                    <connections>
+                        <outlet property="endTextField" destination="RIp-0t-Tyn" id="jka-fZ-Fza"/>
+                        <outlet property="searchButton" destination="tyX-7X-pSw" id="4Ow-ia-o3D"/>
+                        <outlet property="startTextField" destination="50a-eM-JJg" id="Q3i-jS-RKy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FxO-oX-9rM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="2060"/>
+        </scene>
+        <!--点击选择查询策略-->
+        <scene sceneID="S4o-QR-X5O">
+            <objects>
+                <viewController id="kcP-4O-udc" customClass="SearchStrategyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pEw-DM-P7P"/>
+                        <viewControllerLayoutGuide type="bottom" id="clg-mT-x0P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cd6-rY-FZh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfo-Ht-Xez">
+                                <rect key="frame" x="45" y="150" width="230" height="35"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="最省钱">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jg5-u4-BSw" kind="push" id="scV-An-I2i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrf-lx-5Nc">
+                                <rect key="frame" x="45" y="413" width="230" height="35"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="最短时间（考虑换乘等待）">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LOW-4P-EDF" kind="push" id="vq6-57-3e7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwO-Jo-KMa">
+                                <rect key="frame" x="45" y="284" width="230" height="35"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="最短时间">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FWy-G6-MBc" kind="push" id="kh5-xM-YWH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="qrf-lx-5Nc" secondAttribute="centerX" id="Z1H-FO-5Ax"/>
+                            <constraint firstAttribute="centerX" secondItem="fwO-Jo-KMa" secondAttribute="centerX" id="c9D-ss-l6E"/>
+                            <constraint firstAttribute="centerX" secondItem="gfo-Ht-Xez" secondAttribute="centerX" id="wOr-hR-eWQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="点击选择查询策略" id="Tzm-rf-jap"/>
+                    <connections>
+                        <outlet property="costButton" destination="gfo-Ht-Xez" id="zuW-VJ-YBM"/>
+                        <outlet property="realButton" destination="qrf-lx-5Nc" id="Ain-iD-6CQ"/>
+                        <outlet property="timeButton" destination="fwO-Jo-KMa" id="nnI-ug-d8E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNv-Me-vdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734" y="1346"/>
+        </scene>
+        <!--添加线路-->
+        <scene sceneID="q7J-Dm-bJ1">
+            <objects>
+                <viewController id="ZBC-vD-JkP" customClass="AddViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PrC-Hb-nLJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="DZ0-w2-uzd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="okP-bF-oJJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUZ-hE-5q9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backgroundButtonClicked:" destination="ZBC-vD-JkP" eventType="touchUpInside" id="kOi-WF-CFo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="线路名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xru-1c-NGW">
+                                <rect key="frame" x="49" y="157" width="222" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tYD-ed-X8L">
+                                <rect key="frame" x="70" y="241" width="81" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="returnKeyboard:" destination="ZBC-vD-JkP" eventType="editingDidEndOnExit" id="TvN-GG-Dby"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9T-et-FZf">
+                                <rect key="frame" x="164" y="241" width="88" height="30"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="确定">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="OKButtonClicked:" destination="ZBC-vD-JkP" eventType="touchUpInside" id="ciq-zr-E7d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tR5-AU-vpx">
+                                <rect key="frame" x="99" y="402" width="123" height="39"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="完成">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="finishButtonClicked:" destination="ZBC-vD-JkP" eventType="touchUpInside" id="H0I-NI-i0f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRq-DU-3HN">
+                                <rect key="frame" x="16" y="39" width="59" height="30"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="取消">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonClicked:" destination="ZBC-vD-JkP" eventType="touchUpInside" id="XVH-hk-VSM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XUZ-hE-5q9" firstAttribute="width" secondItem="okP-bF-oJJ" secondAttribute="width" id="0wy-qO-KvG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="L9T-et-FZf" secondAttribute="trailing" constant="52" id="69q-9I-I7x"/>
+                            <constraint firstItem="XUZ-hE-5q9" firstAttribute="height" secondItem="okP-bF-oJJ" secondAttribute="height" id="H3l-xY-VIo"/>
+                            <constraint firstAttribute="centerY" secondItem="XUZ-hE-5q9" secondAttribute="centerY" id="P08-Iv-QU3"/>
+                            <constraint firstAttribute="centerX" secondItem="XUZ-hE-5q9" secondAttribute="centerX" id="RQX-Pu-GSO"/>
+                            <constraint firstAttribute="centerX" secondItem="tR5-AU-vpx" secondAttribute="centerX" constant="-0.5" id="We7-Dn-VqE"/>
+                            <constraint firstItem="tYD-ed-X8L" firstAttribute="leading" secondItem="okP-bF-oJJ" secondAttribute="leadingMargin" constant="54" id="gpb-mp-IZP"/>
+                            <constraint firstAttribute="centerX" secondItem="xru-1c-NGW" secondAttribute="centerX" id="oEC-qb-qNR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="添加线路" id="XK8-8w-ZRD"/>
+                    <connections>
+                        <outlet property="OKButton" destination="L9T-et-FZf" id="9lP-ch-qQa"/>
+                        <outlet property="cancelButton" destination="yRq-DU-3HN" id="cYZ-UB-fM9"/>
+                        <outlet property="finishButton" destination="tR5-AU-vpx" id="Csa-mP-quP"/>
+                        <outlet property="mainLabel" destination="xru-1c-NGW" id="EeQ-Ou-cga"/>
+                        <outlet property="textField" destination="tYD-ed-X8L" id="Ayg-NC-vSt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZxD-Ly-Jns" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="288"/>
+        </scene>
+        <!--策略：最省钱-->
+        <scene sceneID="fUn-pT-Ndr">
+            <objects>
+                <viewController id="jg5-u4-BSw" customClass="CostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ti1-YK-cfi"/>
+                        <viewControllerLayoutGuide type="bottom" id="cgw-2G-22J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AFz-tE-q3q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kI-eO-Vf8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="569"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backgroundClicked:" destination="jg5-u4-BSw" eventType="touchUpInside" id="rLB-Aa-nsm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="出发站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xJ-qQ-een">
+                                <rect key="frame" x="63" y="148" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="终点站" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eH-Fo-2xx">
+                                <rect key="frame" x="63" y="273" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IiF-7P-hkL">
+                                <rect key="frame" x="161" y="144" width="97" height="30"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="startTextFieldDoneEditing:" destination="jg5-u4-BSw" eventType="editingDidEndOnExit" id="eoj-Vz-WJH"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q41-pz-GTc">
+                                <rect key="frame" x="161" y="270" width="97" height="30"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="endTextFieldDoneEditing:" destination="jg5-u4-BSw" eventType="editingDidEndOnExit" id="fVr-Y8-9jP"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIr-RM-psh">
+                                <rect key="frame" x="63" y="395" width="195" height="30"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="查   询">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonClicked:" destination="jg5-u4-BSw" eventType="touchUpInside" id="hxF-R7-WHU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" secondItem="9kI-eO-Vf8" secondAttribute="height" id="2mX-xl-onX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q41-pz-GTc" secondAttribute="trailing" constant="46" id="JUr-hs-GcU"/>
+                            <constraint firstAttribute="centerX" secondItem="9kI-eO-Vf8" secondAttribute="centerX" id="YUP-Jc-NZH"/>
+                            <constraint firstAttribute="centerY" secondItem="9kI-eO-Vf8" secondAttribute="centerY" constant="-0.5" id="hPP-Ee-Ytg"/>
+                            <constraint firstItem="2xJ-qQ-een" firstAttribute="leading" secondItem="AFz-tE-q3q" secondAttribute="leadingMargin" constant="47" id="jQ9-Ev-bSv"/>
+                            <constraint firstAttribute="width" secondItem="9kI-eO-Vf8" secondAttribute="width" id="jbz-Xg-4na"/>
+                            <constraint firstItem="6eH-Fo-2xx" firstAttribute="leading" secondItem="AFz-tE-q3q" secondAttribute="leadingMargin" constant="47" id="lgk-D4-Y6b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IiF-7P-hkL" secondAttribute="trailing" constant="46" id="mHr-qZ-7ji"/>
+                            <constraint firstAttribute="centerX" secondItem="IIr-RM-psh" secondAttribute="centerX" constant="-0.5" id="woU-Yw-s9C"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="策略：最省钱" id="WeT-Iw-nFe"/>
+                    <connections>
+                        <outlet property="endTextField" destination="q41-pz-GTc" id="mQ2-MC-yBM"/>
+                        <outlet property="searchButton" destination="IIr-RM-psh" id="rtf-3c-gXV"/>
+                        <outlet property="startTextField" destination="IiF-7P-hkL" id="QGz-XA-e2n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Kf-fF-JgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="911"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KJ1-O2-MDO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mtn-9d-Pl0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xRF-5g-HkJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Iee-Uf-gWp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HGV-uI-Uhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="202" y="220"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
