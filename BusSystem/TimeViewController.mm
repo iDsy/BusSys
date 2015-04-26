@@ -132,7 +132,6 @@ using namespace std;
     }else{
         mtx.ShortestPaths(stnb1, d, p);
         
-        
         //输出路径
         for (int i=1; i<=staCount; i++) {
             if (sta2==station[i]) {
@@ -143,40 +142,46 @@ using namespace std;
             UIAlertView *alt = [[UIAlertView alloc]initWithTitle:nil message:nil delegate:nil cancelButtonTitle:@"没有找到路线" otherButtonTitles:nil, nil];
             [alt show];
         }else {
-            //路径长度
-            //cout<<"最省时间"<<endl;
             //路径
-            cout<<"线路是";
             stack<int> s;
             stack<char> n;
             int count=0;
+            string cstring = "";
+            int speedPass = 0;
             while (stnb2!=0) {
                 s.push(stnb2);
                 count++;
                 n.push(mtx.a[stnb2][p[stnb2]].n);
+                if (p[stnb2]!=0) {
+                    speedPass = speedPass + mtx.a[stnb2][p[stnb2]].d-48;
+                    cout<<speedPass<<endl;
+                }
                 stnb2 = p[stnb2];
             }
             for (int i=0; i<count; i++) {
                 //输出路线编号
                 if (i!=0) {
-                    cout<<" >-"<<n.top()<<"->";
+                    cstring = cstring+">-"+n.top()+"->";
                     n.pop();
                 }else{
                     n.pop();
                 }
                 //输出车站名称
-                cout<<" "<<station[s.top()];
+                cstring += station[s.top()];
                 //pass[i]=station[s.top()];
                 s.pop();
             }
             cout<<endl;
+            cout<<cstring<<endl;
+            cout<<speedPass<<endl;
             stnb2 = 0;
+            // alt
+            NSString* pathPass = [NSString stringWithUTF8String:cstring.c_str()];
+            NSString* altMsg = [[NSString alloc]initWithFormat:@"路线：%@\n时间：%dmin", pathPass, speedPass];
+            UIAlertView* alt = [[UIAlertView alloc]initWithTitle:nil message:altMsg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alt show];
+
         }
-        
-        
-        
-        
-        
         
         //恢复 d p 初始状态
         for(int i=0; i<100; i++) {

@@ -31,6 +31,7 @@ struct node{
 struct element{
     int d;//权值
     char n;//线路号
+    int interval;
 };
 
 class Matrix{
@@ -40,17 +41,14 @@ public:
     int e;//边数
     element **a;//二维数组
     
-    
     //初始化没有边的图
     Matrix(int vertices=5, int noEdge=0);
-    //    ~Matrix(){delete [] a;delete a;};
     int Vertices(){return n;};
     int Edges(){return e;};
     void Add(int i, int j, int w, char n);
-    //    Matrix& Delete(int i,int j);
+    void Add(int i, int j, int w, char n, int itv);
     void ShortestPaths(int s, int d[], int p[]);
-    //    void AllPaths(int start, int end);
-    void AllPaths(int start, int end, stack<int> s, bool b[]);
+    void RealPaths(int start, int end, stack<int> s, bool b[], int &min, string &path);
 };
 
 

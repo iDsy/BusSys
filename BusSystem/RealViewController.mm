@@ -88,7 +88,7 @@ using namespace std;
                     stnb2 = j;
                 }
             }
-            mtx.Add(stnb1, stnb2, bls[pos].speed, bls[pos].number);
+            mtx.Add(stnb1, stnb2, bls[pos].speed, bls[pos].number, bls[pos].interval);
             stnb1 = stnb2 = 0;
         }
         
@@ -114,7 +114,40 @@ using namespace std;
     /*
      * 待做
      */
-    
+    char sta1, sta2;
+    //匹配线路
+    sta1 = *[startTextField.text UTF8String];
+    sta2 = *[endTextField.text UTF8String];
+    //根据车站名称找到车站对应编号
+    for (int i=1; i<=staCount; i++) {
+        if (sta1==station[i]) {
+            stnb1 = i;
+            //cout<<"始发车站编号"<<stnb1<<endl;
+        }
+        if (sta2==station[i]) {
+            stnb2 = i;
+            //cout<<"终点车站编号"<<stnb2<<endl;
+        }
+    }
+    if (stnb1==0 || stnb2==0) {
+        UIAlertView *alt = [[UIAlertView alloc]initWithTitle:nil message:nil delegate:nil cancelButtonTitle:@"输入有误" otherButtonTitles:nil, nil];
+        [alt show];
+        stnb1 = stnb2 = 0;
+    }else{
+        stack<int> s;
+        bool b[100];
+        for (int i=0; i<100; i++) {
+            b[i] = false;
+        }
+        int min = 1000;
+        string path;
+        mtx.RealPaths(stnb1, stnb2, s, b, min, path);
+        //cout<<"最终"<<path<<endl;
+        // alt
+        NSString* altMsg = [NSString stringWithUTF8String:path.c_str()];
+        UIAlertView* alt = [[UIAlertView alloc]initWithTitle:nil message:altMsg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alt show];
+    }
     
 }
 
